@@ -8,6 +8,7 @@ import Asteroid from '../../public/assets/asteroids/1.png'
 const Neopreview = () => {
   const [neo, setNeo] = useState(null);
   useEffect(() => {
+    // USE ZUSTAND TO STORE THE NEO OBJECT, AND THEN USE IT IN THE COMPONENT AT PAGE LEVEL SO THAT IT CAN BE SHARED ACROSS COMPONENTS (CARDS FOR EXAMPLE)
     /*
     const fetchData = async () => {
       const res = await fetch('/api/neo/2017 WT28');
