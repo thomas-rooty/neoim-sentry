@@ -2,25 +2,28 @@
   display: flex;
   flex-direction: column;
   flex: 1;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .table {
   flex: 1;
-  overflow: auto;
 }
 
 .table > thead > tr > th {
-  background-color: #f5f5f5;
+  background-color: #474c56;
+  color: #f3f5fd;
   border-bottom: 1px solid #e8e8e8;
   font-weight: 500;
   padding: 8px 16px;
-  text-align: left;
+  text-align: center;
+  position: sticky;
+  top: 0;
 }
 
 .table > tbody > tr > td {
   border-bottom: 1px solid #e8e8e8;
   padding: 8px 16px;
+  text-align: center;
 }
 
 .table > tbody > tr > td:first-child {

@@ -1,7 +1,7 @@
 import styles from './page.module.css'
 import Navbar from '../components/navbar/Navbar'
 import Neo from "../components/cards/Neo";
-import NeoTable from "../components/table/NeoTable";
+import List from "../components/cards/List";
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
       </header>
       <main className={styles.main}>
         <Neo />
-        <NeoTable />
+        <List />
       </main>
     </div>
   )
