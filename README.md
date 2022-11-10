@@ -1,4 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Introduction
+
+Scout provides trajectory analysis and hazard assessment for recently detected objects on the Minor Planet Center’s
+Near-Earth Object Confirmation Page (NEOCP). Objects on these pages are unconfirmed; their designations are
+user-assigned and unofficial. These objects could be real asteroids, but they cannot be officially designated until they
+are confirmed by additional observations.
+
+In fact, it is very possible that some of these “objects” are not real, but
+rather observing artifacts. If the Minor Planet Center receives enough confirming observations to make sure that an
+object is a real asteroid, the object is given an official designation and disappears from the NEOCP and Scout. Objects
+that remain unconfirmed are eventually removed from the NEOCP and also disappear from Scout.
+
+## CNEOS Scout system
+
+Scout continually monitors the objects on the NEOCP, and for each provides the following orbital, ephemeris, and hazard
+assessment information.
+
+- The number of observations and the length of the observed arc
+- The RMS of the weighted residuals for the best fitting orbit
+- Coarse indicators of absolute magnitude H, MOID, close approach distance, velocity relative to Earth (when defined)
+- Note that these quantities can be extremely uncertain for short arcs
+- Current ephemeris information updated every 15 minutes: Coarse RA, DEC, V-band magnitude, solar elongation, plane-of-sky (POS) rate of motion, 1-sigma POS uncertainty, and POS uncertainty tomorrow
+- Likelihood scores between 0 and 100 for PHA, NEO, geocentric, cometary (Tisserand parameter TJ < 3), and
+- Interior-to-Earth orbits
+- A rating to categorize the chances of an impact on Earth (not defined for arcs shorter than 20 minutes or with less than three observations):
+0. Negligible
+1. Small
+2. Modest
+3. Moderate
+4. Elevated
+
+Because of the generally short observation arcs and the uncertain quality of the astrometry, the reported impact ratings
+and scores are meant to identify interesting objects rather than provide a rigorous probability assessment.
+
+[Link to CNEOS Scout System documentation](https://cneos.jpl.nasa.gov/scout/intro.html)
+
+## Scout Data API
+This API provides access to near-realtime results from the CNEOS Scout system. Various query modes provide access to available subsets of data. See the examples and query parameters below for details.
+
+[Link to Scout Data API documentation](https://ssd-api.jpl.nasa.gov/doc/scout.html)
 
 ## Getting Started
 
@@ -14,21 +53,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed
+on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited
+in `pages/api/hello.ts`.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated
+as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
