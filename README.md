@@ -1,3 +1,4 @@
+![](https://cneos.jpl.nasa.gov/images/cneos_banner.png)
 ## Introduction
 
 Scout provides trajectory analysis and hazard assessment for recently detected objects on the Minor Planet Center’s
