@@ -4,7 +4,7 @@
   background-color: #141414;
   border: 1px solid #505050;
   border-radius: 5px;
-  height: 50vh;
+  height: 45vh;
 }
 
 .header {
@@ -70,4 +70,16 @@
 
 .detailsValue {
   color: #df474a;
+}
+
+.image {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding: 1rem;
+}
+
+.image > img {
+  width: auto;
+  height: 250px;
 }

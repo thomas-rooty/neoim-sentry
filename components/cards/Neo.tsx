@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client';
-import {useState, useEffect} from "react";
+import {useEffect, useState} from "react";
 import styles from './Neo.module.css'
 import Image from 'next/image'
 // @ts-ignore
@@ -10,18 +10,26 @@ import {useStore} from "../../store/zustore";
 const Neo = () => {
   const [neo, setNeo] = useStore(state => [state.neo, state.setNeo]);
   const [choosenNeo] = useStore(state => [state.choosenNeo]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
+    setLoading(true);
+    console.log("Loading NEO data...");
     // USE ZUSTAND TO STORE THE NEO OBJECT, AND THEN USE IT IN THE COMPONENT AT PAGE LEVEL SO THAT IT CAN BE SHARED ACROSS COMPONENTS (CARDS FOR EXAMPLE)
     const fetchData = async () => {
       const res = await fetch('/api/neo/' + choosenNeo);
       const data = await res.json();
       setNeo(data.neo);
+      setLoading(false);
     };
     fetchData();
-  }, []);
+  }, [choosenNeo]);
 
-  if (neo.length === 0) {
-    return <div>Fetching data from <i>CNEOS Sentry System</i>...</div>;
+  if (neo.length === 0 || loading) {
+    return (
+      <div className={styles.card}>
+        <div>Fetching data from <i>CNEOS Sentry System</i>...</div>
+      </div>
+    );
   } else {
     return (
       <div className={styles.card}>
@@ -60,7 +68,7 @@ const Neo = () => {
           </div>
           <div className={styles.detailsItem}>
             <span className={styles.detailsLabel}>D(meter)</span>
-            <span className={styles.detailsValue}>{Math.floor(neo['summary']['diameter']*100000)/100}</span>
+            <span className={styles.detailsValue}>{Math.floor(neo['summary']['diameter'] * 100000) / 100}</span>
           </div>
           <div className={styles.detailsItem}>
             <span className={styles.detailsLabel}>Designation</span>

@@ -4,6 +4,9 @@ import {useEffect} from "react";
 import {useStore} from "../../store/zustore";
 
 const NeoTable = () => {
+  // Set choosenNeo
+  const setChoosenNeo = useStore(state => state.setChoosenNeo);
+
   // Fetch from /api/neo all the neos and store in state to be used in the table
   const [neos, setNeos] = useStore(state => [state.neos, state.setNeos]);
   useEffect(() => {
@@ -15,6 +18,13 @@ const NeoTable = () => {
     };
     fetchData();
   }, []);
+
+  const handleRowClick = (e: any) => {
+    // Console log the id of the row clicked
+    console.log(e.target.parentNode.id);
+    // Set the choosenNeo to the id of the row clicked
+    setChoosenNeo(e.target.parentNode.id);
+  }
 
   if (neos.length === 0) {
     return <div>Fetching NEOs from <i>CNEOS Sentry System</i>...</div>;
@@ -38,7 +48,7 @@ const NeoTable = () => {
           </thead>
           <tbody>
           {neos.map((neo: any) => (
-            <tr key={neo.des}>
+            <tr id={neo.des} key={neo.des} onClick={handleRowClick}>
               <td>{neo.des}</td>
               <td>{neo.range}</td>
               <td>{neo.n_imp}</td>
