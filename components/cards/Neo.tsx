@@ -10,21 +10,19 @@ import {useStore} from "../../store/zustore";
 const Neo = () => {
   const [neo, setNeo] = useStore(state => [state.neo, state.setNeo]);
   const [choosenNeo] = useStore(state => [state.choosenNeo]);
-  const [loading, setLoading] = useState(true);
+  const [loadingNEO, setLoadingNEO] = useStore(state => [state.loadingNEO, state.setLoadingNEO]);
   useEffect(() => {
-    setLoading(true);
-    console.log("Loading NEO data...");
-    // USE ZUSTAND TO STORE THE NEO OBJECT, AND THEN USE IT IN THE COMPONENT AT PAGE LEVEL SO THAT IT CAN BE SHARED ACROSS COMPONENTS (CARDS FOR EXAMPLE)
+    setLoadingNEO(true);
     const fetchData = async () => {
       const res = await fetch('/api/neo/' + choosenNeo);
       const data = await res.json();
       setNeo(data.neo);
-      setLoading(false);
+      setLoadingNEO(false);
     };
     fetchData();
   }, [choosenNeo]);
 
-  if (neo.length === 0 || loading) {
+  if (loadingNEO) {
     return (
       <div className={styles.card}>
         <div>Fetching data from <i>CNEOS Sentry System</i>...</div>

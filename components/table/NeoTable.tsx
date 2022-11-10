@@ -4,20 +4,28 @@ import {useEffect} from "react";
 import {useStore} from "../../store/zustore";
 
 const NeoTable = () => {
+  // Loading state
+  const [loadingNEOs, setLoadingNEOs] = useStore(state => [state.loadingNEOs, state.setLoadingNEOs]);
+
   // Set choosenNeo
   const setChoosenNeo = useStore(state => state.setChoosenNeo);
 
   // Fetch from /api/neo all the neos and store in state to be used in the table
   const [neos, setNeos] = useStore(state => [state.neos, state.setNeos]);
+  const [hMax] = useStore(state => [state.hMax]);
+  const [ps] = useStore(state => [state.ps]);
+  const [ipMin] = useStore(state => [state.ipMin]);
   useEffect(() => {
+    setLoadingNEOs(true);
     const fetchData = async () => {
-      const res = await fetch('/api/neo');
+      const res = await fetch('/api/neo/' + hMax + '/' + ps + '/' + ipMin);
       const data = await res.json();
       setNeos(data.neos);
       console.log(data.neos);
+      setLoadingNEOs(false);
     };
     fetchData();
-  }, []);
+  }, [hMax, ps, ipMin]);
 
   const handleRowClick = (e: any) => {
     // Console log the id of the row clicked
@@ -26,7 +34,7 @@ const NeoTable = () => {
     setChoosenNeo(e.target.parentNode.id);
   }
 
-  if (neos.length === 0) {
+  if (loadingNEOs) {
     return <div>Fetching NEOs from <i>CNEOS Sentry System</i>...</div>;
   } else {
     return (
