@@ -1,0 +1,72 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: #141414;
+  border: 1px solid #505050;
+  border-radius: 5px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid #505050;
+  padding: 1rem;
+}
+
+.right {
+  display: flex;
+  flex-direction: row;
+}
+
+.previewBtn,
+.detailsBtn {
+  margin: 0 0.5rem;
+  cursor: pointer;
+}
+
+.title > h1 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.toolbar {
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem;
+}
+
+.toolbarItem {
+  cursor: pointer;
+  background-color: #464c57;
+  margin-right: 0.5rem;
+  padding: 0.2rem 0.3rem;
+  vertical-align: center;
+}
+
+.toolbarItem > span {
+  color: #969ba2;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.details {
+  display: flex;
+  flex-direction: row;
+  padding: 0.5rem;
+}
+
+.detailsItem {
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+.detailsLabel {
+  color: #999a9c;
+  margin-right: 0.15rem;
+}
+
+.detailsValue {
+  color: #df474a;
+}
