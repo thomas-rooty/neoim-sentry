@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 import {useState, useEffect} from "react";
 import styles from './Neo.module.css'
@@ -6,12 +7,13 @@ import Image from 'next/image'
 import Asteroid from '../../public/assets/asteroids/1.png'
 import {useStore} from "../../store/zustore";
 
-const Neopreview = () => {
+const Neo = () => {
   const [neo, setNeo] = useStore(state => [state.neo, state.setNeo]);
+  const [choosenNeo] = useStore(state => [state.choosenNeo]);
   useEffect(() => {
     // USE ZUSTAND TO STORE THE NEO OBJECT, AND THEN USE IT IN THE COMPONENT AT PAGE LEVEL SO THAT IT CAN BE SHARED ACROSS COMPONENTS (CARDS FOR EXAMPLE)
     const fetchData = async () => {
-      const res = await fetch('/api/neo/2017 WT28');
+      const res = await fetch('/api/neo/' + choosenNeo);
       const data = await res.json();
       setNeo(data.neo);
       console.log(data.neo);
@@ -77,4 +79,4 @@ const Neopreview = () => {
   }
 }
 
-export default Neopreview
+export default Neo
