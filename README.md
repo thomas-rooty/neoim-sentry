@@ -1,4 +1,9 @@
 ![](https://cneos.jpl.nasa.gov/images/cneos_banner.png)
+
+## NEOIM Sentry
+
+Near Earth Object Impact Monitoring provides datas gathered from the below systems accessible via NASA's open API about NEOs that has potential future Earth impact events based on currently available observations.
+
 ## Introduction
 
 Scout provides trajectory analysis and hazard assessment for recently detected objects on the Minor Planet Center’s
