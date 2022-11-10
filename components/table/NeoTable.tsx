@@ -35,7 +35,11 @@ const NeoTable = () => {
   }
 
   if (loadingNEOs) {
-    return <div>Fetching NEOs from <i>CNEOS Sentry System</i>...</div>;
+    return (
+      <div className={styles.card}>
+        <div className={styles.loading}>Fetching data from <i>CNEOS Sentry System</i>...</div>
+      </div>
+    );
   } else {
     return (
       <div className={styles.container}>

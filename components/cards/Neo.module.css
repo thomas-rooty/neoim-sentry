@@ -7,6 +7,12 @@
   height: 45vh;
 }
 
+.loading {
+  margin-top: 1rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
 .header {
   display: flex;
   flex-direction: row;

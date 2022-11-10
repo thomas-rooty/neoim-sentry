@@ -1,3 +1,15 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background-color: #141414;
+  border: 1px solid #505050;
+  border-radius: 5px;
+  height: 45vh;
+  padding-top: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
 .container {
   display: flex;
   flex-direction: column;

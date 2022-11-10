@@ -7,20 +7,23 @@ const List = () => {
   const [hMax, setHMax] = useStore(state => [state.hMax, state.setHMax]);
   const [ps, setPs] = useStore(state => [state.ps, state.setPs]);
   const [ipMin, setIpMin] = useStore(state => [state.ipMin, state.setIpMin]);
+
+  const resetToDefaults = () => {
+    setHMax('99');
+    setPs('-4');
+    setIpMin('1e-6');
+  }
   return (
     <div className={styles.card}>
       <div className={styles.header}>
         <div className={styles.settings}>
-          <h3>Table Settings</h3>
-          <div className={styles.settingsContainer}>
-            <div className={styles.settingsItem}>
-              <select name="observed" id="observed">
-                <option value="all">Observed anytime</option>
-                <option value="today">Observed within 30 last days</option>
-                <option value="week">Observed within 60 last days</option>
-                <option value="month">Observed within 180 last days</option>
-              </select>
+          <div className={styles.settingsHeader}>
+            <h3>Table Settings</h3>
+            <div className={styles.settingsReset}>
+              <button onClick={resetToDefaults}>Reset to default</button>
             </div>
+          </div>
+          <div className={styles.settingsContainer}>
             <div className={styles.settingsItem}>
               <select name="ip" id="ip" value={ipMin} onChange={e => setIpMin(e.target.value)}>
                 <option value="1e-10">Any Impact Probability</option>
@@ -53,7 +56,7 @@ const List = () => {
           </div>
         </div>
       </div>
-      <NeoTable />
+      <NeoTable/>
     </div>
   );
 }
