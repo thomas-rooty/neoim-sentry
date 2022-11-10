@@ -2,6 +2,7 @@
 import {useState, useEffect} from "react";
 import styles from './Neo.module.css'
 import Image from 'next/image'
+// @ts-ignore
 import Asteroid from '../../public/assets/asteroids/1.png'
 
 const Neopreview = () => {
