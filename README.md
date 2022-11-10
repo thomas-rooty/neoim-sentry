@@ -46,6 +46,8 @@ Sentry is a highly automated collision monitoring system that continually scans 
 ## Sentry System API
 This API provides access to results from the CNEOS Sentry system.
 
+[Link to Sentry API documentation](https://ssd-api.jpl.nasa.gov/doc/sentry.html)
+
 ## Scout Data API
 This API provides access to near-realtime results from the CNEOS Scout system. Various query modes provide access to available subsets of data. See the examples and query parameters below for details.
 
