@@ -5,11 +5,15 @@ interface IStore {
   setNeo: (neo: string[]) => void;
   choosenNeo: string;
   setChoosenNeo: (neo: string) => void;
+  neos: any;
+  setNeos: (neos: string[]) => void;
 }
 
 export const useStore = create<IStore>((set) => ({
   neo: [],
   setNeo: (neo) => set({ neo }),
   choosenNeo: '2017 WT28',
-  setChoosenNeo: (neo) => set({ choosenNeo: neo })
+  setChoosenNeo: (neo) => set({ choosenNeo: neo }),
+  neos: [],
+  setNeos: (neos) => set({ neos })
 }));

@@ -16,7 +16,6 @@ const Neo = () => {
       const res = await fetch('/api/neo/' + choosenNeo);
       const data = await res.json();
       setNeo(data.neo);
-      console.log(data.neo);
     };
     fetchData();
   }, []);
