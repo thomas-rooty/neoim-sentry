@@ -11,17 +11,20 @@ const Navbar = () => {
               NEO <b>Impact Monitoring</b>
             </div>
             <div className={styles.title_down}>
-              <i>Sentry System</i>
+              <i>powered by CNEOS Sentry System</i>
             </div>
           </div>
         </Link>
       </div>
       <div className={styles.nav__links}>
         <Link href="/">
-          NEO
+          NEOs
         </Link>
         <Link href="/basics">
           BASICS
+        </Link>
+        <Link href="/api">
+          API
         </Link>
       </div>
     </nav>
