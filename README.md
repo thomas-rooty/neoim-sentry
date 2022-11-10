@@ -40,6 +40,12 @@ and scores are meant to identify interesting objects rather than provide a rigor
 
 [Link to CNEOS Scout System documentation](https://cneos.jpl.nasa.gov/scout/intro.html)
 
+## Sentry
+Sentry is a highly automated collision monitoring system that continually scans the most current asteroid catalog for possibilities of future impact with Earth over the next 100 years. Whenever a potential impact is detected it will be analyzed and the results immediately published here, except in unusual cases where we seek independent confirmation.
+
+## Sentry System API
+This API provides access to results from the CNEOS Sentry system.
+
 ## Scout Data API
 This API provides access to near-realtime results from the CNEOS Scout system. Various query modes provide access to available subsets of data. See the examples and query parameters below for details.
 
