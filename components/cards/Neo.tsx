@@ -1,11 +1,10 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
-import {useEffect, useState} from "react";
+import {useEffect, Suspense} from "react";
 import styles from './Neo.module.css'
-import Image from 'next/image'
-// @ts-ignore
-import Asteroid from '../../public/assets/asteroids/1.png'
 import {useStore} from "../../store/zustore";
+import {Canvas} from "@react-three/fiber";
+import AsteroidModel from "./AsteroidModel";
+import {Environment, OrbitControls} from '@react-three/drei'
 
 const Neo = () => {
   const [neo, setNeo] = useStore(state => [state.neo, state.setNeo]);
@@ -74,10 +73,21 @@ const Neo = () => {
           </div>
         </div>
         <div className={styles.image}>
-          <Image
-            src={Asteroid}
-            alt="Neo"
-          />
+          <Canvas>
+            <ambientLight intensity={1} />
+            <directionalLight color="#FFCCCB" position={[0, 0, 5]} intensity={2} />
+            <OrbitControls
+              enablePan={false}
+              enableZoom={false}
+              enableRotate={true}
+              autoRotate={true}
+              autoRotateSpeed={0.5}
+            />
+            <Suspense fallback={null}>
+              <AsteroidModel/>
+              <Environment preset="sunset"/>
+            </Suspense>
+          </Canvas>
         </div>
       </div>
     );
