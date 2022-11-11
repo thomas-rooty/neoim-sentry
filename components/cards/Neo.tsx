@@ -72,17 +72,17 @@ const Neo = () => {
           </div>
         </div>
         <div className={styles.image}>
-          <Canvas>
+          <Canvas orthographic={true} camera={{position: [0, 0, 100], zoom: 30}}>
             <ambientLight intensity={0.5}/>
             <directionalLight color="#FFA4A2" position={[0, 0, 10]} intensity={1}/>
             <OrbitControls
               enablePan={false}
-              enableZoom={false}
+              enableZoom={true}
               enableRotate={true}
               autoRotate={!pause}
               autoRotateSpeed={0.5}
-              maxPolarAngle={Math.PI / 2}
-              minPolarAngle={Math.PI / 2}
+              maxZoom={100}
+              minZoom={30}
             />
             <Suspense fallback={null}>
               <AsteroidModel wireframe={wireframe} />
