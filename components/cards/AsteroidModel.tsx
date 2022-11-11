@@ -1,10 +1,27 @@
 import {useGLTF} from '@react-three/drei'
-import {useRef} from "react";
-import {useFrame} from "@react-three/fiber";
+import {useRef, useEffect, useState} from "react";
+import {useFrame, useLoader} from "@react-three/fiber";
+// @ts-ignore
+import {TextureLoader} from "three/src/loaders/TextureLoader";
 
-const AsteroidModel = () => {
-  // Generate a random number from 1 to 10
-  const asteroidNumber = Math.floor(Math.random() * 10) + 1;
+interface AsteroidModelProps {
+  wireframe: boolean;
+}
+
+const AsteroidModel = ({wireframe}: AsteroidModelProps) => {
+  // Load texture
+  const [colorMap, normalMap, roughnessMap, aoMap] = useLoader(TextureLoader, [
+    '/assets/asteroids/textures/Mat1_Base_Color.jpg',
+    '/assets/asteroids/textures/Mat1_Normal_DirectX.jpg',
+    '/assets/asteroids/textures/Mat1_Roughness.jpg',
+    '/assets/asteroids/textures/Mat1_Mixed_AO.jpg',
+  ]);
+
+  const [asteroidNumber, setAsteroidNumber] = useState(0);
+  useEffect(() => {
+    // Generate a random number from 1 to 10
+    setAsteroidNumber(Math.floor(Math.random() * 10) + 1);
+  }, []);
 
   // Create a reference to every asteroid
   const asteroid1 = useRef();
@@ -53,70 +70,90 @@ const AsteroidModel = () => {
         receiveShadow
         geometry={nodes.Asteroid_no_1.geometry}
         material={materials["Material #3.001"]}
-      />
+      >
+        <meshStandardMaterial wireframe={wireframe} map={colorMap} normalMap={normalMap} roughnessMap={roughnessMap} aoMap={aoMap}/>
+      </mesh>
       <mesh
         ref={asteroid2}
         castShadow
         receiveShadow
         geometry={nodes.Asteroid_no_10.geometry}
         material={materials["Material #3.001"]}
-      />
+      >
+        <meshStandardMaterial wireframe={wireframe} map={colorMap} normalMap={normalMap} roughnessMap={roughnessMap} aoMap={aoMap}/>
+      </mesh>
       <mesh
         ref={asteroid3}
         castShadow
         receiveShadow
         geometry={nodes.Asteroid_no_9.geometry}
         material={materials["Material #3.001"]}
-      />
+      >
+        <meshStandardMaterial wireframe={wireframe} map={colorMap} normalMap={normalMap} roughnessMap={roughnessMap} aoMap={aoMap}/>
+      </mesh>
       <mesh
         ref={asteroid4}
         castShadow
         receiveShadow
         geometry={nodes.Asteroid_no_8.geometry}
         material={materials["Material #3.001"]}
-      />
+      >
+        <meshStandardMaterial wireframe={wireframe} map={colorMap} normalMap={normalMap} roughnessMap={roughnessMap} aoMap={aoMap}/>
+      </mesh>
       <mesh
         ref={asteroid5}
         castShadow
         receiveShadow
         geometry={nodes.Asteroid_no_7.geometry}
         material={materials["Material #3.001"]}
-      />
+      >
+        <meshStandardMaterial wireframe={wireframe} map={colorMap} normalMap={normalMap} roughnessMap={roughnessMap} aoMap={aoMap}/>
+      </mesh>
       <mesh
         ref={asteroid6}
         castShadow
         receiveShadow
         geometry={nodes.Asteroid_no_6.geometry}
         material={materials["Material #3.001"]}
-      />
+      >
+        <meshStandardMaterial wireframe={wireframe} map={colorMap} normalMap={normalMap} roughnessMap={roughnessMap} aoMap={aoMap}/>
+      </mesh>
       <mesh
         ref={asteroid7}
         castShadow
         receiveShadow
         geometry={nodes.Asteroid_no_5.geometry}
         material={materials["Material #3.001"]}
-      />
+      >
+        <meshStandardMaterial wireframe={wireframe} map={colorMap} normalMap={normalMap} roughnessMap={roughnessMap} aoMap={aoMap}/>
+      </mesh>
       <mesh
         ref={asteroid8}
         castShadow
         receiveShadow
         geometry={nodes.Asteroid_no_4.geometry}
         material={materials["Material #3.001"]}
-      />
+      >
+        <meshStandardMaterial wireframe={wireframe} map={colorMap} normalMap={normalMap} roughnessMap={roughnessMap} aoMap={aoMap}/>
+      </mesh>
       <mesh
         ref={asteroid9}
         castShadow
         receiveShadow
         geometry={nodes.Asteroid_no_3.geometry}
         material={materials["Material #3.001"]}
-      />
+      >
+        <meshStandardMaterial wireframe={wireframe} map={colorMap} normalMap={normalMap} roughnessMap={roughnessMap} aoMap={aoMap}/>
+      </mesh>
       <mesh
         ref={asteroid10}
         castShadow
         receiveShadow
         geometry={nodes.Asteroid_no_2.geometry}
         material={materials["Material #3.001"]}
-      />
+      >
+        <meshStandardMaterial wireframe={wireframe} map={colorMap} normalMap={normalMap} roughnessMap={roughnessMap} aoMap={aoMap}/>
+      </mesh>
     </group>
   );
 }
