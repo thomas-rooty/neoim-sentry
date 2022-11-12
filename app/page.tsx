@@ -6,10 +6,8 @@ import List from "../components/cards/List";
 export default function Home() {
   return (
     <div className={styles.container}>
-      <header>
-        <Navbar />
-      </header>
       <main className={styles.main}>
+        <Navbar />
         <Neo />
         <List />
       </main>

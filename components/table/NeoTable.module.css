@@ -16,8 +16,7 @@
   flex: 1;
   overflow: auto;
   margin-top: 1rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  margin-left: 1rem;
 }
 
 .table {
@@ -29,9 +28,9 @@
   color: #f3f5fd;
   border-bottom: 1px solid #505050;
   background-color: #474c56;
-  font-weight: 500;
+  font-weight: 400;
   padding: 8px 16px;
-  text-align: center;
+  text-align: left;
   position: sticky;
   top: 0;
 }
@@ -39,7 +38,8 @@
 .table > tbody > tr > td {
   border: 1px solid #505050;
   padding: 8px 16px;
-  text-align: center;
+  text-align: left;
+  font-weight: 300;
 }
 
 /* Hover effect on tr */
