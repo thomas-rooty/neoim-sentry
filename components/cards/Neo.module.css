@@ -106,7 +106,13 @@
   height: unset!important;
 }
 
-.previewTxt {
-  white-space: nowrap;
-  padding-right: 10px;
+@media screen and (max-width: 1280px) {
+  .card {
+    min-width: 100%;
+    margin: 5px 0 0;
+  }
+
+  .details {
+    flex-direction: column;
+  }
 }

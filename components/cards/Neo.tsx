@@ -90,9 +90,6 @@ const Neo = () => {
               <Environment preset="sunset"/>
             </Suspense>
           </Canvas>
-          <div className={styles.previewTxt}>
-            <span>{neo['signature']['source']} {neo['signature']['version']}</span>
-          </div>
         </div>
       </div>
     );

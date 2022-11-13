@@ -41,6 +41,7 @@ const PlotSection = () => {
             }}
             config={{
               displayModeBar: false,
+              responsive: true,
             }}
           />
         }

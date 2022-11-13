@@ -45,3 +45,28 @@
 .table > tbody > tr > td:first-child {
   border-left: 2px solid #24AF65;
 }
+
+@media screen and (max-width: 1280px) {
+  .card {
+    min-width: 100%;
+    margin: 0;
+  }
+
+  /* Disable the third, fourth, fifth, and sixth column */
+  .table > thead > tr > th:nth-child(3),
+  .table > thead > tr > th:nth-child(4),
+  .table > thead > tr > th:nth-child(5),
+  .table > thead > tr > th:nth-child(6),
+  .table > thead > tr > th:nth-child(8),
+  .table > thead > tr > th:nth-child(9),
+  .table > thead > tr > th:nth-child(10),
+  .table > tbody > tr > td:nth-child(3),
+  .table > tbody > tr > td:nth-child(4),
+  .table > tbody > tr > td:nth-child(5),
+  .table > tbody > tr > td:nth-child(6),
+  .table > tbody > tr > td:nth-child(8),
+  .table > tbody > tr > td:nth-child(9),
+  .table > tbody > tr > td:nth-child(10) {
+    display: none;
+  }
+}

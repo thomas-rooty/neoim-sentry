@@ -62,3 +62,9 @@
 .table > tbody > tr > td:first-child {
   border-left: 2px solid #afad24;
 }
+
+@media screen and (max-width: 1280px) {
+  .card {
+    display: none;
+  }
+}
