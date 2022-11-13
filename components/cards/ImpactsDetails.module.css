@@ -1,9 +1,27 @@
 .card {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  background-color: #1f1f24;
-  height: 45vh;
-  min-width: fit-content; /* So the table never gets cropped */
+  align-items: stretch;
+  background-color: #17191F;
+  height: 400px;
+  min-width: 550px;
+  margin: 5px 5px 0;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  border-bottom: 1px solid #505050;
+  padding: 1rem;
+  background: #1f1f24;
+}
+
+.title > h1 {
+  margin: 0;
+  font-size: 1rem;
 }
 
 .container {
@@ -38,10 +56,9 @@
   text-align: left;
   font-weight: 300;
   background-color: #17191f;
-  cursor: pointer;
   white-space: nowrap;
 }
 
 .table > tbody > tr > td:first-child {
-  border-left: 2px solid #24AF65;
+  border-left: 2px solid #afad24;
 }

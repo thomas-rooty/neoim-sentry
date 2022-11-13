@@ -53,8 +53,8 @@ const NeoTable = () => {
             <th>Velocity (km/s)</th>
             <th>H (mag)</th>
             <th>Diameter (km)</th>
-            <th>Paiermo Scale (cum.)</th>
-            <th>Paiermo Scale (max.)</th>
+            <th>Palermo Scale (cum.)</th>
+            <th>Palermo Scale (max.)</th>
             <th>Torino Scale (max.)</th>
           </tr>
           </thead>

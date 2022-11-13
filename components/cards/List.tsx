@@ -34,12 +34,12 @@ const List = () => {
             </div>
             <div className={styles.settingsItem}>
               <select name="ps" id="ps" value={ps} onChange={(e) => setPs(e.target.value)}>
-                <option value="-10">Any Paiermo scale</option>
-                <option value="0">Paiermo scale {'>'}= 0</option>
-                <option value="-2">Paiermo scale {'>='} -2</option>
-                <option value="-4">Paiermo scale {'>='} -4</option>
-                <option value="-6">Paiermo scale {'>='} -6</option>
-                <option value="-8">Paiermo scale {'>='} -8</option>
+                <option value="-10">Any Palermo scale</option>
+                <option value="0">Palermo scale {'>'}= 0</option>
+                <option value="-2">Palermo scale {'>='} -2</option>
+                <option value="-4">Palermo scale {'>='} -4</option>
+                <option value="-6">Palermo scale {'>='} -6</option>
+                <option value="-8">Palermo scale {'>='} -8</option>
               </select>
             </div>
             <div className={styles.settingsItem}>
