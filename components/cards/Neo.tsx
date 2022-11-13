@@ -30,7 +30,14 @@ const Neo = () => {
   if (loadingNEO) {
     return (
       <div className={styles.card}>
-        <div>Fetching data from <i>CNEOS Sentry System</i>...</div>
+        <div className={styles.header}>
+          <div className={styles.title}>
+            <h1>Loading...</h1>
+          </div>
+        </div>
+        <div className={styles.container}>
+          <div className={styles.loading}>Fetching data from <i>CNEOS Sentry System</i>...</div>
+        </div>
       </div>
     );
   } else {

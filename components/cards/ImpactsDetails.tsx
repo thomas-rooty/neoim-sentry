@@ -4,6 +4,7 @@ import {useStore} from "../../store/zustore";
 import {useEffect, useState} from "react";
 
 const ImpactsDetails = () => {
+  const [loadingNEO] = useStore(state => [state.loadingNEO]);
   const [neo] = useStore(state => [state.neo, state.setNeo]);
   const [impacts, setImpacts] = useState(undefined);
 
@@ -14,7 +15,14 @@ const ImpactsDetails = () => {
   if (!impacts) {
     return (
       <div className={styles.card}>
-        <div className={styles.loading}>Fetching data from <i>CNEOS Sentry System</i>...</div>
+        <div className={styles.header}>
+          <div className={styles.title}>
+            <h1>Impact details overview</h1>
+          </div>
+        </div>
+        <div className={styles.container}>
+          <div className={styles.loading}>Fetching data from <i>CNEOS Sentry System</i>...</div>
+        </div>
       </div>
     );
   } else {
@@ -26,28 +34,31 @@ const ImpactsDetails = () => {
           </div>
         </div>
         <div className={styles.container}>
-          <table className={styles.table}>
-            <thead>
-            <tr>
-              <th>Energy</th>
-              <th>Impact Probability</th>
-              <th>Presumed date</th>
-              <th>Sigma Vi</th>
-            </tr>
-            </thead>
-            <tbody>
+          {!loadingNEO ?
+            <table className={styles.table}>
+              <thead>
+              <tr>
+                <th>Energy</th>
+                <th>Impact Probability</th>
+                <th>Presumed date</th>
+                <th>Sigma Vi</th>
+              </tr>
+              </thead>
+              <tbody>
 
-            {// @ts-ignore
-              impacts.map((impact, index) => (
-                <tr key={index}>
-                  <td>{impact['energy']}</td>
-                  <td>{impact['ip']}</td>
-                  <td>{impact['date']}</td>
-                  <td>{impact['sigma_vi']}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+              {// @ts-ignore
+                impacts.map((impact, index) => (
+                  <tr key={index}>
+                    <td>{impact['energy']}</td>
+                    <td>{impact['ip']}</td>
+                    <td>{impact['date']}</td>
+                    <td>{impact['sigma_vi']}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            : <div className={styles.loading}>Fetching data from <i>CNEOS Sentry System</i>...</div>
+          }
         </div>
       </div>
     );
