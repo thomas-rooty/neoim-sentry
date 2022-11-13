@@ -18,6 +18,7 @@ const Neo = () => {
       const data = await res.json();
       setNeo(data.neo);
       setLoadingNEO(false);
+      console.log(data.neo);
     };
     fetchData();
   }, [choosenNeo]);
@@ -89,8 +90,8 @@ const Neo = () => {
               <Environment preset="sunset"/>
             </Suspense>
           </Canvas>
-          <div className={styles.imageRotation}>
-            <span>Preview</span>
+          <div className={styles.previewTxt}>
+            <span>{neo['signature']['source']} {neo['signature']['version']}</span>
           </div>
         </div>
       </div>

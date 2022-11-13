@@ -3,11 +3,11 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  background-color: #141414;
+  background-color: #17191f;
   width: 40%;
   min-height: 400px;
   min-width: 550px;
-  margin: 5px;
+  margin: 5px 5px 0;
 }
 
 .loading {
@@ -23,6 +23,7 @@
   width: 100%;
   border-bottom: 1px solid #505050;
   padding: 1rem;
+  background: #1f1f24;
 }
 
 .right {
@@ -104,4 +105,9 @@
 
 .image > div:first-child {
   height: unset!important;
+}
+
+.previewTxt {
+  white-space: nowrap;
+  padding-right: 10px;
 }

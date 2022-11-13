@@ -1,13 +1,8 @@
 .card {
   display: flex;
   flex-direction: column;
-  background-color: #141414;
-  border: 1px solid #505050;
-  border-radius: 5px;
+  background-color: #1f1f24;
   height: 45vh;
-  padding-top: 1rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
 }
 
 .container {
@@ -15,19 +10,17 @@
   flex-direction: column;
   flex: 1;
   overflow: auto;
-  margin-top: 1rem;
-  margin-left: 1rem;
 }
 
 .table {
   flex: 1;
-  border-spacing: 0;
+  border-spacing: 0 15px;
 }
 
+/* Header table */
 .table > thead > tr > th {
-  color: #f3f5fd;
-  border-bottom: 1px solid #505050;
-  background-color: #474c56;
+  color: #a2a2a2;
+  background-color: #17191f;
   font-weight: 400;
   padding: 8px 16px;
   text-align: left;
@@ -35,24 +28,17 @@
   top: 0;
 }
 
+
+/* Cell in a row */
 .table > tbody > tr > td {
-  border: 1px solid #505050;
-  padding: 8px 16px;
+  color: #d5d5d5;
+  padding: 4px 16px;
   text-align: left;
   font-weight: 300;
-}
-
-/* Hover effect on tr */
-.table > tbody > tr:hover {
-  background-color: #252525;
+  background-color: #17191f;
   cursor: pointer;
 }
 
-/* Table borders radius */
-.table > tbody > tr:last-child > td:first-child {
-  border-bottom-left-radius: 5px;
-}
-
-.table > tbody > tr:last-child > td:last-child {
-  border-bottom-right-radius: 5px;
+.table > tbody > tr > td:first-child {
+  border-left: 2px solid #24AF65;
 }

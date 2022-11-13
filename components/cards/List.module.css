@@ -4,7 +4,7 @@
   height: 50vh;
   min-height: 400px;
   margin: 5px;
-  background: #141414;
+  background: #17191f;
 }
 
 .header {
@@ -13,6 +13,7 @@
   justify-content: space-between;
   width: 100%;
   border-bottom: 1px solid #505050;
+  background: #1f1f24;
   padding: 0;
 }
 
