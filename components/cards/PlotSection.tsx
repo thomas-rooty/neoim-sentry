@@ -2,6 +2,11 @@
 import styles from './PlotSection.module.css';
 import {useStore} from "../../store/zustore";
 import Plot from 'react-plotly.js';
+import dynamic from "next/dynamic";
+
+const PlotSectionDynamic = dynamic(() => Promise.resolve(PlotSection), {
+    ssr: false
+});
 
 const PlotSection = () => {
   const [neo] = useStore(state => [state.neo, state.setNeo]);
@@ -50,4 +55,4 @@ const PlotSection = () => {
   )
 };
 
-export default PlotSection
+export default PlotSectionDynamic;

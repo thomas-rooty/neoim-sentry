@@ -2,8 +2,8 @@ import styles from './page.module.css'
 import Navbar from '../components/navbar/Navbar'
 import Neo from "../components/cards/Neo";
 import ImpactsDetails from "../components/cards/ImpactsDetails";
-import PlotSection from "../components/cards/PlotSection";
 import List from "../components/cards/List";
+import PlotSectionDynamic from "../components/cards/PlotSection";
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
         <div className={styles.upperCards}>
           <Neo/>
           <ImpactsDetails/>
-          <PlotSection/>
+          <PlotSectionDynamic/>
         </div>
         <List/>
       </main>
