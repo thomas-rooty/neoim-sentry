@@ -4,9 +4,7 @@ import {useStore} from "../../store/zustore";
 import Plot from 'react-plotly.js';
 import dynamic from "next/dynamic";
 
-const PlotSectionDynamic = dynamic(() => Promise.resolve(PlotSection), {
-    ssr: false
-});
+const PlotDynamic = dynamic(() => import('react-plotly.js'), {ssr: false});
 
 const PlotSection = () => {
   const [neo] = useStore(state => [state.neo, state.setNeo]);
@@ -20,7 +18,7 @@ const PlotSection = () => {
       </div>
       <div className={styles.container}>
         {neo['summary'] &&
-          <Plot
+          <PlotDynamic
             className={styles.plot}
             data={[
               {
@@ -36,8 +34,20 @@ const PlotSection = () => {
             ]}
             layout={{
               title: 'Potentially Hazardous Asteroid',
-              xaxis: {title: 'Palermo Scale (max.)', zeroline: false, color: 'white', fixedrange: true, range: [10, -10]},
-              yaxis: {title: 'Estimated Diameter (m)', zeroline: false, color: 'white', fixedrange: true, range: [0, (neo.summary.diameter * 1000) * 1.5]},
+              xaxis: {
+                title: 'Palermo Scale (max.)',
+                zeroline: false,
+                color: 'white',
+                fixedrange: true,
+                range: [10, -10]
+              },
+              yaxis: {
+                title: 'Estimated Diameter (m)',
+                zeroline: false,
+                color: 'white',
+                fixedrange: true,
+                range: [0, (neo.summary.diameter * 1000) * 1.5]
+              },
               paper_bgcolor: '#17191F',
               plot_bgcolor: '#17191F',
               font: {
@@ -52,7 +62,7 @@ const PlotSection = () => {
         }
       </div>
     </div>
-  )
+  );
 };
 
-export default PlotSectionDynamic;
+export default PlotSection;
