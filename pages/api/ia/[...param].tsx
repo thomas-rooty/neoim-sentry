@@ -1,5 +1,6 @@
 import type {NextApiRequest, NextApiResponse} from 'next'
 import * as tf from '@tensorflow/tfjs';
+import Model from '../../../public/model.json';
 
 type Data = {
   stars: any[]
@@ -18,7 +19,7 @@ export default async function handler(
   const classes = ['Brown Dwarf', 'Red Dwarf', 'White Dwarf', 'Main Sequence', 'Super Giants', 'Hyper Giants']
 
   // Load model
-  const model = await tf.loadLayersModel('https://raw.githubusercontent.com/thomas-rooty/neoim-sentry/main/pages/api/ia/model.json')
+  const model = await tf.loadLayersModel('https://www.jsonkeeper.com/b/T8Q5')
 
   // Create a new array of features from the request
   // @ts-ignore
