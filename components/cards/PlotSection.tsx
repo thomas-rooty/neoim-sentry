@@ -1,7 +1,6 @@
 'use client';
 import styles from './PlotSection.module.css';
 import {useStore} from "../../store/zustore";
-import Plot from 'react-plotly.js';
 import dynamic from "next/dynamic";
 
 const PlotDynamic = dynamic(() => import('react-plotly.js'), {ssr: false});
@@ -65,4 +64,5 @@ const PlotSection = () => {
   );
 };
 
+// @ts-ignore
 export default PlotSection;
