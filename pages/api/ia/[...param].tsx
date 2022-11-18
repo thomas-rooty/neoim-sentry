@@ -19,7 +19,7 @@ export default async function handler(
   const classes = ['Brown Dwarf', 'Red Dwarf', 'White Dwarf', 'Main Sequence', 'Super Giants', 'Hyper Giants']
 
   // Load model
-  const model = await tf.loadLayersModel('https://www.jsonkeeper.com/b/T8Q5')
+  const model = await tf.loadLayersModel('https://raw.githubusercontent.com/thomas-rooty/neoim-sentry/main/public/model.json')
 
   // Create a new array of features from the request
   // @ts-ignore
