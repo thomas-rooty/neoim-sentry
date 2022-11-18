@@ -1,40 +1,33 @@
 import type {NextApiRequest, NextApiResponse} from 'next'
 import * as tf from '@tensorflow/tfjs';
-import Model from './model.json';
 
 type Data = {
   stars: any[]
 }
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
   // Catch all route
-  const {
-    query: {param},
-  } = req
+  const {query: {param},} = req
 
   // Define stars classes
   const classes = ['Brown Dwarf', 'Red Dwarf', 'White Dwarf', 'Main Sequence', 'Super Giants', 'Hyper Giants']
 
   // Load model
-  const model = await tf.loadLayersModel('https://firebasestorage.googleapis.com/v0/b/neoim-sentry.appspot.com/o/model.json?alt=media&token=e8ece3ce-79cf-487e-bb5f-8dfae9791f33')
+  const model = await tf.loadLayersModel('https://raw.githubusercontent.com/thomas-rooty/neoim-sentry/main/pages/api/ia/model.json')
 
-  // Create a new array of features from the request
+  // Convert every param to numeric
   // @ts-ignore
-  const features = [param[0], param[1], param[2], param[3], param[4], param[5], param[6]]
+  const params = param.map((p) => parseFloat(p))
 
-  // Make a prediction using the model
-  const prediction = model.predict(tf.tensor2d([features]))
+  // Param has 7 values (temp, luminosity, radius, magnitude, star type, star color, spectral class)
+  const prediction = model.predict(tf.tensor2d([params as any], [1, 7]))
 
-  // Get the index of the highest probability
-  //const index = prediction.argMax(1).dataSync()[0]
+  // Get the index of the highest value
   const index = (prediction as any).argMax(1).dataSync()[0]
 
   // Get the class name
-  const starClass = classes[index]
+  const star = classes[index]
 
-  // Return the class name
-  res.status(200).json({stars: [starClass]})
+  // Return the star class
+  res.status(200).json({stars: [star]})
 }
