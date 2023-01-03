@@ -19,8 +19,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   // @ts-ignore
   const params = param.map((p) => parseFloat(p))
 
-  // Param has 7 values (temp, luminosity, radius, magnitude, star type, star color, spectral class)
-  const prediction = model.predict(tf.tensor2d([params as any], [1, 7]))
+  // Param has 7 values (temp, luminosity, radius, magnitude, star color, spectral class)
+  const prediction = model.predict(tf.tensor2d([params as any], [1, 6]))
 
   // Get the index of the highest value
   const index = (prediction as any).argMax(1).dataSync()[0]
