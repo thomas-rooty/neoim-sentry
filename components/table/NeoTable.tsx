@@ -21,7 +21,6 @@ const NeoTable = () => {
       const res = await fetch('/api/neo/' + hMax + '/' + ps + '/' + ipMin);
       const data = await res.json();
       setNeos(data.neos);
-      console.log(data.neos);
       setLoadingNEOs(false);
     };
     fetchData();

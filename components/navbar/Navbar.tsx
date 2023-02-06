@@ -18,10 +18,10 @@ const Navbar = () => {
       </div>
       <div className={styles.nav__links}>
         <Link href="/">
-          NEOs
+          Sentry API
         </Link>
-        <Link href="/basics">
-          BASICS
+        <Link href="/mongo">
+          MongoDB CRUD
         </Link>
         <Link href="/api/info">
           API

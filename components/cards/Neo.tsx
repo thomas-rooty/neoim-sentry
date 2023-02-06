@@ -18,7 +18,6 @@ const Neo = () => {
       const data = await res.json();
       setNeo(data.neo);
       setLoadingNEO(false);
-      console.log(data.neo);
     };
     fetchData();
   }, [choosenNeo]);
