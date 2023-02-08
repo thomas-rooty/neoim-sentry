@@ -4,7 +4,6 @@ import Neo from "../components/cards/Neo";
 import ImpactsDetails from "../components/cards/ImpactsDetails";
 import List from "../components/cards/List";
 import PlotSection from "../components/cards/PlotSection";
-import ListMongo from "../components/cards/ListMongo";
 
 export default function Home() {
   return (
@@ -17,7 +16,6 @@ export default function Home() {
           <PlotSection/>
         </div>
         <List/>
-        <ListMongo/>
       </main>
     </div>
   )
