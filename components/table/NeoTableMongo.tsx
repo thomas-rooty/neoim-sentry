@@ -7,9 +7,6 @@ const NeoTable = () => {
   // Loading state
   const [loadingNEOs, setLoadingNEOs] = useStore(state => [state.loadingNEOs, state.setLoadingNEOs]);
 
-  // Set choosenNeo
-  const setChoosenNeo = useStore(state => state.setChoosenNeo);
-
   // Fetch from /api/neo all the neos and store in state to be used in the table
   const [neosMongo, setNeosMongo] = useStore(state => [state.neosMongo, state.setNeosMongo]);
   const [hMax] = useStore(state => [state.hMax]);
@@ -29,8 +26,6 @@ const NeoTable = () => {
   const handleRowClick = (e: any) => {
     // Console log the id of the row clicked
     console.log(e.target.parentNode.id);
-    // Set the choosenNeo to the id of the row clicked
-    setChoosenNeo(e.target.parentNode.id);
   }
 
   if (loadingNEOs) {
