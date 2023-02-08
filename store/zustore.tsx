@@ -11,6 +11,8 @@ interface IStore {
   setChoosenNeo: (neo: string) => void;
   neos: any;
   setNeos: (neos: string[]) => void;
+  neosMongo: any;
+  setNeosMongo: (neos: string[]) => void;
   hMax: string;
   setHMax: (hMax: string) => void;
   ps: string;
@@ -30,6 +32,8 @@ export const useStore = create<IStore>((set) => ({
   setChoosenNeo: (neo) => set({ choosenNeo: neo }),
   neos: [],
   setNeos: (neos) => set({ neos }),
+  neosMongo: [],
+  setNeosMongo: (neosMongo) => set({ neosMongo }),
   hMax: '99',
   setHMax: (hMax) => set({ hMax }),
   ps: '-4',

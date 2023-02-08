@@ -1,7 +1,7 @@
 'use client';
 import styles from './List.module.css'
-import NeoTable from "../table/NeoTable";
 import {useStore} from "../../store/zustore";
+import NeoTableMongo from "../table/NeoTableMongo";
 
 const List = () => {
   const [hMax, setHMax] = useStore(state => [state.hMax, state.setHMax]);
@@ -18,7 +18,7 @@ const List = () => {
       <div className={styles.header}>
         <div className={styles.settings}>
           <div className={styles.settingsHeader}>
-            <h3>NEO Table</h3>
+            <h3>Backup Table</h3>
             <div className={styles.settingsReset}>
               <button onClick={resetToDefaults}>Reset to default</button>
             </div>
@@ -56,7 +56,7 @@ const List = () => {
           </div>
         </div>
       </div>
-      <NeoTable/>
+      <NeoTableMongo/>
     </div>
   );
 }
