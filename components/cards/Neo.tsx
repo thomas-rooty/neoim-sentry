@@ -93,7 +93,6 @@ const Neo = () => {
             />
             <Suspense fallback={null}>
               <AsteroidModel wireframe={wireframe} />
-              <Environment preset="sunset"/>
             </Suspense>
           </Canvas>
         </div>
